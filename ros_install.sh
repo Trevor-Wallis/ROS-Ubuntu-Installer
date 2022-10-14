@@ -1,7 +1,7 @@
 #!/bin/bash
 
 fullROSInstall=0
-installSpyder3=0
+installSpyder=0
 
 # Promt user if they want a full install of ROS desktop or just a base install
 echo "Which version of ROS Noetic do you want to install?"
@@ -21,8 +21,8 @@ echo "Do you want to install Spyder3 (A Python IDE)?"
 read -p "yes(y) or no(n) " yn
 while true; do
 	case $yn in
-		Y|y* ) installSpyder3=1; break;;
-		N|n* ) installSpyder3=0; break;;
+		Y|y* ) installSpyder=1; break;;
+		N|n* ) installSpyder=0; break;;
 		* ) read -p "Please enter yes(y) or no(n) " yn;;
 	esac
 done
@@ -33,7 +33,7 @@ apt-get --assume-yes install curl
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 apt-get update
 
-if fullROSInstall
+if ((fullROSInstall == 1))
 then
 	apt-get --assume-yes install ros-noetic-desktop-full
 else
@@ -62,7 +62,7 @@ apt-get --assume-yes install ros-noetic-slam-gmapping
 apt-get --assume-yes install ros-noetic-teleop-twist-keyboard
 
 # Install Spyder3 if desired
-if installSpyder3
+if ((installSpyder == 1))
 then
 	apt-get --assume-yes install spyder3
 fi
