@@ -1,10 +1,37 @@
 #!/bin/bash
+
+fullROSInstall=0
+installSpyder3=0
+
+# Promt user if they want a full install of ROS desktop or just a base install
+echo "Which version of ROS Noetic do you want to install?"
+read -p "Full(f) (Recommended, includes simulators)\nBase(b) (Smaller install size)" yn
+    case $yn in
+        [F|f]* ) fullROSInstall=1;;
+        [N|n]* ) fullROSInstall=0;;
+        * ) echo "Please answer full(f) or base(b).";;
+esac
+
+# Promt user if they want to install Spyder3
+read -p "Do you want to install Spyder3 (A Python IDE)? yes(y) or no(n)" yn
+case $yn in
+	[Y|y]* ) installSpyder3=1;;
+	[Nn]* ) installSpyder3=0;;
+	* ) echo "Please answer yes or no.";;
+esac
+
+
 sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 apt-get install curl
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 apt-get update
 
-apt-get --assume-yes install ros-noetic-desktop-full
+if fullROSInstall
+then
+	apt-get --assume-yes install ros-noetic-desktop-full
+else
+	apt-get --assume-yes install ros-noetic-desktop
+fi
 apt-get --assume-yes install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 rosdep init
 apt-get --assume-yes install python3-scipy
@@ -26,3 +53,9 @@ apt-get --assume-yes install ros-noetic-slam-gmapping
 
 # ROS package "teleop_twist_keyboard"
 apt-get --assume-yes install ros-noetic-teleop-twist-keyboard
+
+# Install Spyder3 if desired
+if installSpyder3
+then
+	apt-get --assume-yes install spyder3
+fi

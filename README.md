@@ -20,3 +20,11 @@ chmod +x ros_install.sh ros_setup.sh
 sudo ./ros_install.sh
 ./ros_setup.sh
 ```
+
+## Post Install
+After installing, the catkin workspace needs to be initialized using the following commands.
+
+```
+cd ~/catkin_ws
+catkin_make
+```

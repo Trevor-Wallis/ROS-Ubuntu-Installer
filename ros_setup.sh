@@ -2,7 +2,7 @@
 echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 
 # Source ROS as it will only be sourced on future terminal launches
-source ~/.bashrc
+source /opt/ros/noetic/setup.bash
 
 rosdep update
 
