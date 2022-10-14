@@ -28,3 +28,6 @@ After installing, the catkin workspace needs to be initialized using the followi
 cd ~/catkin_ws
 catkin_make
 ```
+
+## Contributing
+Do you have any suggestions for improving these scripts? Feel free to open an issue or pull request with what you would like to see changed.
