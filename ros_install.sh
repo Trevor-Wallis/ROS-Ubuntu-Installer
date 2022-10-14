@@ -11,17 +11,19 @@ read -p "" yn
     case $yn in
         [F|f]* ) fullROSInstall=1;;
         [N|n]* ) fullROSInstall=0;;
-        * ) echo "Please answer full(f) or base(b).";;
+        * ) read -p "" yn;;
 esac
 
 # Promt user if they want to install Spyder3
 echo "Do you want to install Spyder3 (A Python IDE)?"
 read -p "yes(y) or no(n) " yn
-case $yn in
-	[Y|y]* ) installSpyder3=1;;
-	[Nn]* ) installSpyder3=0;;
-	* ) echo "Please answer yes or no.";;
-esac
+while true: do
+	case $yn in
+		[Y|y]* ) installSpyder3=1; break;;
+		[Nn]* ) installSpyder3=0; break;;
+		* ) read -p "yes(y) or no(n) " yn;;
+	esac
+done
 
 
 sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
