@@ -22,12 +22,7 @@ sudo ./ros_install.sh
 ```
 
 ## Post Install
-After installing, the catkin workspace needs to be initialized using the following commands.
-
-```
-cd ~/catkin_ws
-catkin_make
-```
+The scripts can be removed after they have been run as they are no longer needed.
 
 ## Contributing
 Do you have any suggestions for improving these scripts? Feel free to open an issue or pull request with what you would like to see changed.
