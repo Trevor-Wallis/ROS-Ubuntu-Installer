@@ -7,12 +7,14 @@ installSpyder3=0
 echo "Which version of ROS Noetic do you want to install?"
 echo "Full(f) (Recommended, includes simulators)"
 echo "Base(b) (Smaller install size)"
-read -p "" yn
-    case $yn in
-        [F|f]* ) fullROSInstall=1;;
-        [N|n]* ) fullROSInstall=0;;
-        * ) read -p "" yn;;
-esac
+while true: do
+	read -p "" yn
+    	case $yn in
+        	[F|f]* ) fullROSInstall=1;;
+        	[N|n]* ) fullROSInstall=0;;
+        	* ) read -p "Please enter full(f) or base(b)" yn;;
+	esac
+done
 
 # Promt user if they want to install Spyder3
 echo "Do you want to install Spyder3 (A Python IDE)?"
@@ -21,7 +23,7 @@ while true: do
 	case $yn in
 		[Y|y]* ) installSpyder3=1; break;;
 		[Nn]* ) installSpyder3=0; break;;
-		* ) read -p "yes(y) or no(n) " yn;;
+		* ) read -p "Please enter yes(y) or no(n) " yn;;
 	esac
 done
 
