@@ -12,8 +12,8 @@ wget https://github.com/Trevor-Wallis/ROS-Ubuntu-Installer/blob/main/ros_setup.s
 ```
 
 ## Installing
-ros_install.sh takes care of installing the needed packages for ROS and needs to be run as root. You will be prompted with initial options when running this script; afterwards the install will proceed unattended.
-ros_setup.sh should be run by the account ROS development is being done with as it makes ROS and the Catkin workspace it creates be sourced on bash shell startup.
+`ros_install.sh` takes care of installing the needed packages for ROS and needs to be run as root. You will be prompted with initial options when running this script; afterwards the install will proceed unattended.
+`ros_setup.sh` should be run by the account ROS development is being done with as it makes ROS and the Catkin workspace it creates be sourced on bash shell startup.
 
 ```
 chmod +x ros_install.sh ros_setup.sh
