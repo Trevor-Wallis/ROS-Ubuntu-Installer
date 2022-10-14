@@ -5,7 +5,9 @@ installSpyder3=0
 
 # Promt user if they want a full install of ROS desktop or just a base install
 echo "Which version of ROS Noetic do you want to install?"
-read -p "Full(f) (Recommended, includes simulators)\nBase(b) (Smaller install size)" yn
+echo "Full(f) (Recommended, includes simulators)"
+echo "Base(b) (Smaller install size)"
+read -p "" yn
     case $yn in
         [F|f]* ) fullROSInstall=1;;
         [N|n]* ) fullROSInstall=0;;
@@ -13,7 +15,8 @@ read -p "Full(f) (Recommended, includes simulators)\nBase(b) (Smaller install si
 esac
 
 # Promt user if they want to install Spyder3
-read -p "Do you want to install Spyder3 (A Python IDE)? yes(y) or no(n)" yn
+echo "Do you want to install Spyder3 (A Python IDE)?"
+read -p "yes(y) or no(n) " yn
 case $yn in
 	[Y|y]* ) installSpyder3=1;;
 	[Nn]* ) installSpyder3=0;;
