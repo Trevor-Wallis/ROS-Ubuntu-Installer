@@ -7,29 +7,29 @@ installSpyder3=0
 echo "Which version of ROS Noetic do you want to install?"
 echo "Full(f) (Recommended, includes simulators)"
 echo "Base(b) (Smaller install size)"
-while true: do
-	read -p "" yn
+read -p "" yn
+while true; do
     	case $yn in
-        	[F|f]* ) fullROSInstall=1;;
-        	[N|n]* ) fullROSInstall=0;;
-        	* ) read -p "Please enter full(f) or base(b)" yn;;
+        	F|f* ) fullROSInstall=1; break;;
+        	B|b* ) fullROSInstall=0; break;;
+        	* ) read -p "Please enter full(f) or base(b) " yn;;
 	esac
 done
 
 # Promt user if they want to install Spyder3
 echo "Do you want to install Spyder3 (A Python IDE)?"
 read -p "yes(y) or no(n) " yn
-while true: do
+while true; do
 	case $yn in
-		[Y|y]* ) installSpyder3=1; break;;
-		[Nn]* ) installSpyder3=0; break;;
+		Y|y* ) installSpyder3=1; break;;
+		N|n* ) installSpyder3=0; break;;
 		* ) read -p "Please enter yes(y) or no(n) " yn;;
 	esac
 done
 
 
 sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-apt-get install curl
+apt-get --assume-yes install curl
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | apt-key add -
 apt-get update
 
