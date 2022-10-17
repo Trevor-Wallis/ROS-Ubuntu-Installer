@@ -7,8 +7,8 @@ These scripts were created specifically to satisfy the ROS installation requirem
 To use these scripts, they need to be downloaded to your Linux machine. This can be done using wget.
 
 ```
-wget https://github.com/Trevor-Wallis/ROS-Ubuntu-Installer/blob/main/ros_install.sh
-wget https://github.com/Trevor-Wallis/ROS-Ubuntu-Installer/blob/main/ros_setup.sh
+wget https://raw.githubusercontent.com/Trevor-Wallis/ROS-Ubuntu-Installer/main/ros_install.sh
+wget https://raw.githubusercontent.com/Trevor-Wallis/ROS-Ubuntu-Installer/main/ros_setup.sh
 ```
 
 ## Installing
